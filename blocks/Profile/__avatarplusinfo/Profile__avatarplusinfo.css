@@ -1,0 +1,11 @@
+.Profile__avatarplusinfo {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 320px) {
+  .Profile__avatarplusinfo {
+    flex-direction: column;
+    align-items: center;
+  }
+}
