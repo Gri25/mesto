@@ -12,6 +12,20 @@
   padding-top: 45px;
 }
 
+@media screen and (max-width: 1024px) {
+  .page {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .page {
     padding-bottom: 36px;
