@@ -1,4 +1,4 @@
-.elements__stroke {
+.card__stroke {
   background: url(../../../images/Vector-h.svg);
   margin: 0;
   padding: 0;
@@ -9,18 +9,18 @@
   background-repeat: no-repeat;
   background-position: center center;
   margin-top: 25px;
-  margin-bottom: 31px;
+  margin-bottom: 25px;
   margin-right: 20px;
   border: none;
   transition: opacity .2s linear;
 }
 
-.elements__stroke:hover {
+.card__stroke:hover {
   opacity: .5;
   cursor: pointer;
 }
 
-.elements__stroke:active {
+.card__stroke:active {
   background: url(../../../images/Union.svg);
   opacity: 1;
 }

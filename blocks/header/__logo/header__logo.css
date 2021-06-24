@@ -5,7 +5,7 @@
 }
 
 .header__logo:hover {
-  opacity: 0;
+  opacity: .6;
   cursor: pointer;
 }
 

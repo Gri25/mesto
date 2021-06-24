@@ -1,5 +1,5 @@
-.popup__nameInput {
-  font-family: Inter, sans-serif;
+.popup__input {
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -11,4 +11,8 @@
   border: none;
   border-bottom: 1px solid rgba(84,84,84,0.2);
   min-height: 30px;
+}
+
+.popup__input:last-of-type {
+  margin-top: 30px;
 }

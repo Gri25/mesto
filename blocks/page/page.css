@@ -1,5 +1,5 @@
 .page {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   background-color: #000000;
   -webkit-font-smoothinng: antialiased;
@@ -14,23 +14,23 @@
 
 @media screen and (max-width: 1024px) {
   .page {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 72px;
+    padding-right: 72px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .page {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .page {
-    padding-bottom: 36px;
-    padding-top: 28px;
     padding-left: 0;
     padding-right: 0;
+    padding-bottom: 36px;
+    padding-top: 28px;
   }
 }

@@ -9,22 +9,22 @@
 
 @import url(../blocks/content/content.css);
 
-@import url(../blocks/Profile/Profile.css);
-@import url(../blocks/Profile/__profession/Profile__profession.css);
-@import url(../blocks/Profile/__name/Profile__name.css);
-@import url(../blocks/Profile/__info/Profile__info.css);
-@import url(../blocks/Profile/__edit-button/Profile__edit-button.css);
-@import url(../blocks/Profile/__buttonplusname/Profile__buttonplusname.css);
-@import url(../blocks/Profile/__avatar/Profile__avatar.css);
-@import url(../blocks/Profile/__add-button/Profile__add-button.css);
-@import url(../blocks/Profile/__avatarplusinfo/Profile__avatarplusinfo.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__profession/profile__profession.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__button-plus-name/profile__button-plus-name.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__avatar-plus-info/profile__avatar-plus-info.css);
 
-@import url(../blocks/elements/elements.css);
-@import url(../blocks/elements/__img/elements__img.css);
-@import url(../blocks/elements/__item/elements__item.css);
-@import url(../blocks/elements/__stroke/elements__stroke.css);
-@import url(../blocks/elements/__text/elements__text.css);
-@import url(../blocks/elements/__description/elements__description.css);
+@import url(../blocks/cards/cards.css);
+@import url(../blocks/card/card.css);
+@import url(../blocks/card/__text/card__text.css);
+@import url(../blocks/card/__stroke/card__stroke.css);
+@import url(../blocks/card/__img/card__img.css);
+@import url(../blocks/card/__description/card__description.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyringht/footer__copyringht.css);
@@ -33,8 +33,9 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__nameInput/popup__nameInput.css);
-@import url(../blocks/popup/__jobInput/popup__jobInput.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_job.css);
+@import url(../blocks/popup/__input/_type/popup__input_type_name.css);
 @import url(../blocks/popup/__content/popup__content.css);
 @import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
