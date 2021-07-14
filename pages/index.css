@@ -12,15 +12,15 @@
 @import url(../blocks/content/content.css);
 
 
-@import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__profession/profile__profession.css);
-@import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__edit-button/profile__edit-button.css);
-@import url(../blocks/profile/__button-plus-name/profile__button-plus-name.css);
-@import url(../blocks/profile/__avatar/profile__avatar.css);
-@import url(../blocks/profile/__avatar-plus-info/profile__avatar-plus-info.css);
-@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/person/person.css);
+@import url(../blocks/person/__profession/person__profession.css);
+@import url(../blocks/person/__name/person__name.css);
+@import url(../blocks/person/__info/person__info.css);
+@import url(../blocks/person/__edit-button/person__edit-button.css);
+@import url(../blocks/person/__button-plus-name/person__button-plus-name.css);
+@import url(../blocks/person/__avatar/person__avatar.css);
+@import url(../blocks/person/__avatar-plus-info/person__avatar-plus-info.css);
+@import url(../blocks/person/__add-button/person__add-button.css);
 
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
