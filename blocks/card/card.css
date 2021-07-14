@@ -2,6 +2,6 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  max-width: 282px;
+  min-width: 282px;
   position: relative;
 }
