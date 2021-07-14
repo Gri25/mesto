@@ -1,4 +1,4 @@
-.profile {
+.person {
   margin: 0;
   padding-top: 40px;
   padding-bottom: 51px;
@@ -9,13 +9,13 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .profile {
+  .person {
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .profile {
+  .person {
     padding-top: 42px;
     padding-bottom: 36px;
   }

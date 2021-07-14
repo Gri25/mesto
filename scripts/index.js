@@ -1,8 +1,8 @@
 const popupElement = document.querySelector('.popup');
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddPlace = document.querySelector('.popup_type_add-place');
-const popupOpenButtonElement = document.querySelector('.profile__edit-button');
-const placeAddButtonElement = document.querySelector('.profile__add-button');
+const popupOpenButtonElement = document.querySelector('.person__edit-button');
+const placeAddButtonElement = document.querySelector('.person__add-button');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupCloseAddElement = popupAddPlace.querySelector('.popup__close');
 //форма добавления карты
@@ -14,8 +14,8 @@ const urlCard = formAddElement.querySelector('.popup__input_type_link');
 const cardImage = document.queryCommandEnabled('.card__img');
 const cardTitle = document.querySelector('.card__text');
 //
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__profession');
+const profileName = document.querySelector('.person__name');
+const profileJob = document.querySelector('.person__profession');
 const popupElementNameInput = popupElement.querySelector('.popup__input_type_name');
 const popupElementJobInput = popupElement.querySelector('.popup__input_type_job');
 const formElement = document.querySelector('.popup__form');

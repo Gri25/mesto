@@ -1,4 +1,4 @@
-.profile__profession {
+.person__profession {
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .profile__profession {
+  .person__profession {
     font-size: 14px;
     line-height: 17px;
     align-self: center;

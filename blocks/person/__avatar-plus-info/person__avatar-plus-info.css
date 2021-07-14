@@ -1,4 +1,4 @@
-.profile__avatar-plus-info {
+.person__avatar-plus-info {
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .profile__avatar-plus-info {
+  .person__avatar-plus-info {
     flex-direction: column;
     align-items: center;
   }
