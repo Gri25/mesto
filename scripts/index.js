@@ -44,7 +44,6 @@ function getCardTemplate(cardData) {
   const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
   const cardText = createdCard.querySelector('.card__text');
   const cardImage = createdCard.querySelector('.card__img');
-  const cardDeleteButton = createdCard.querySelector('.card__delete-button');
   const cardLikeButton = createdCard.querySelector('.card__stroke');
   cardText.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -101,7 +100,7 @@ const openPopup = function(selectedPopup) {
 const openPropfilePopup = function(selectedPopup) {
   popupElementNameInput.value = profileName.textContent;
   popupElementJobInput.value = profileJob.textContent;
-  selectedPopup.classList.add('popup__opened')
+  openPopup(selectedPopup)
 }
 
 //закрытие попапов
@@ -109,17 +108,20 @@ const closePopup = function(selectedPopup) {
   selectedPopup.classList.remove('popup__opened')
 }
 
+
 //закрытие окона по клику на затемненную область для всех трёх попапов
+//(воспринял буквально указание с прошлой проверки, назвал эту функцию и вызвал её один раз)
 const popups = document.querySelectorAll('.popup')
-const closePopupByClickOnOverlay = function () {
-    popups.forEach((popup) => {
-        popup.addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('popup__opened')) {
-                closePopup(popup)
-            }
-        })
+function closePopupByClickOnOverlay() {
+  popups.forEach((popup) => {
+    popup.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup__opened')) {
+          closePopup(popup)
+      }
     })
+  })
 }
+closePopupByClickOnOverlay()
 
 //редактор профиля
 const addTextProfile = function(evt) {
@@ -129,15 +131,11 @@ const addTextProfile = function(evt) {
   closePopup(popupElement)
 }
 
-
 popupOpenButtonElement.addEventListener('click', () => openPropfilePopup(popupEditProfile));
 placeAddButtonElement.addEventListener('click', () => openPopup(popupAddPlace));
 popupCloseButtonElement.addEventListener('click',() => closePopup(popupEditProfile));
 popupCloseAddElement.addEventListener('click', () => closePopup(popupAddPlace));
 popupPlaceClose.addEventListener('click', () => closePopup(popupPlace));
-popupEditProfile.addEventListener('click', closePopupByClickOnOverlay);
-popupAddPlace.addEventListener('click', closePopupByClickOnOverlay);
-popupPlace.addEventListener('click', closePopupByClickOnOverlay);
 formElement.addEventListener('submit', addTextProfile);
 formAddElement.addEventListener('submit', addNewCard);
 
