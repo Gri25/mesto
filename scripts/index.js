@@ -110,7 +110,6 @@ const closePopup = function(selectedPopup) {
 
 
 //закрытие окона по клику на затемненную область для всех трёх попапов
-//(воспринял буквально указание с прошлой проверки, назвал эту функцию и вызвал её один раз)
 const popups = document.querySelectorAll('.popup')
 function closePopupByClickOnOverlay() {
   popups.forEach((popup) => {
