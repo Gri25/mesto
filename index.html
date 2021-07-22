@@ -37,10 +37,18 @@
           <button type="button" class="popup__close"></button>
           <div class="popup__content">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="personalData">
-              <input type="text" name="fullName" class="popup__input popup__input_type_name">
-              <input type="text" name="profession" class="popup__input popup__input_type_job">
-              <button type="submit" class="popup__submit-button">Сохранить</button>
+            <form class="popup__form" name="personalData" novalidate>
+              <section class="popup__input-section">
+                <input type="text" name="fullName" class="popup__input popup__input_type_name"
+                required minlength="2" maxlength="40" id="form_name">
+                <span class="popup__input-error" id="form_name-error"></span>
+              </section>
+              <section class="popup__input-section">
+                <input type="text" name="profession" class="popup__input popup__input_type_job"
+                required minlength="2" maxlength="200" id="form_profession">
+                <span class="popup__input-error" id="form_profession-error"></span>
+              </section>
+              <button type="submit" class="popup__submit-button" disabled="true">Сохранить</button>
             </form>
           </div>
         </div>
@@ -50,12 +58,18 @@
           <button type="button" class="popup__close"></button>
           <div class="popup__content">
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form" name="placeData">
-              <input type="text" name="placeName" class="popup__input popup__input_type_name"
-              placeholder="Название">
-              <input type="text" name="link" class="popup__input popup__input_type_link"
-              placeholder="Ссылка на картинку">
-              <button type="submit" class="popup__submit-button">Создать</button>
+            <form class="popup__form" name="placeData" novalidate>
+              <section class="popup__input-section">
+                <input type="text" name="placeName" class="popup__input popup__input_type_name"
+                placeholder="Название" required minlength="2" maxlength="30" id="form_name">
+                <span class="popup__input-error" id="form_name-error"></span>
+              </section>
+              <section class="popup__input-section">
+                <input type="url" name="link" class="popup__input popup__input_type_link"
+                placeholder="Ссылка на картинку" required id="form_url">
+                <span class="popup__input-error" id="form_url-error"></span>
+              </section>
+              <button type="submit" class="popup__submit-button" disabled="true">Создать</button>
             </form>
           </div>
         </div>
@@ -79,6 +93,7 @@
         </div>
       </article>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/initial-сards.js"></script>
     <script src="./scripts/index.js"></script>
   </body>

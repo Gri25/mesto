@@ -33,6 +33,7 @@ const popupPlaceTitle = popupPlaceContainer.querySelector('.popup-place__title')
 //модификатор для лайка
 const cardImgActive = document.querySelector('.card__stroke_active');
 
+
 //обработчики дя функций с картами
 function setEventListener(createdCard) {
   createdCard.querySelector('.card__delete-button').addEventListener('click', handleDelete);
@@ -72,6 +73,8 @@ function handleDelete(event) {
 //добавляем новую карточку
 const addNewCard = (event) => {
   event.preventDefault()
+  popupSaveAddElement.setAttribute('disabled', true);
+  popupSaveAddElement.classList.add('popup__submit-button_anactive');
   const newCard  = {
     name: placeCard.value,
     link: urlCard.value
@@ -89,7 +92,6 @@ function openImgPopup(event) {
   popupPlaceImg.alt = clickElement.alt;
   popupPlaceTitle.textContent = clickElement.alt;
 }
-
 
 //открытие попапов
 const openPopup = function(selectedPopup) {
@@ -130,6 +132,16 @@ const addTextProfile = function(evt) {
   closePopup(popupElement)
 }
 
+//закрытие на эскейп
+const escCode = 'Escape';
+function handleEsc(event) {
+    if (event.key === escCode) {
+        const activePopup = document.querySelector('.popup__opened');
+        closePopup(activePopup);
+    }
+}
+
+document.addEventListener('keydown', handleEsc);
 popupOpenButtonElement.addEventListener('click', () => openPropfilePopup(popupEditProfile));
 placeAddButtonElement.addEventListener('click', () => openPopup(popupAddPlace));
 popupCloseButtonElement.addEventListener('click',() => closePopup(popupEditProfile));
@@ -137,4 +149,3 @@ popupCloseAddElement.addEventListener('click', () => closePopup(popupAddPlace));
 popupPlaceClose.addEventListener('click', () => closePopup(popupPlace));
 formElement.addEventListener('submit', addTextProfile);
 formAddElement.addEventListener('submit', addNewCard);
-
