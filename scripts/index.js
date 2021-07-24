@@ -45,7 +45,6 @@ function getCardTemplate(cardData) {
   const createdCard = cardTemplate.querySelector('.card').cloneNode(true);
   const cardText = createdCard.querySelector('.card__text');
   const cardImage = createdCard.querySelector('.card__img');
-  const cardLikeButton = createdCard.querySelector('.card__stroke');
   cardText.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
@@ -93,9 +92,10 @@ function openImgPopup(event) {
   popupPlaceTitle.textContent = clickElement.alt;
 }
 
-//открытие попапов
+//открытие попапов и присваивание обработчика закрытие на Esc
 const openPopup = function(selectedPopup) {
   selectedPopup.classList.add('popup__opened')
+  document.addEventListener('keydown', handleEsc);
 }
 
 //функция открытия попапа для редактировния профиля
@@ -105,9 +105,10 @@ const openPropfilePopup = function(selectedPopup) {
   openPopup(selectedPopup)
 }
 
-//закрытие попапов
+//закрытие попапов и удаление обработчика закрытие на Esc
 const closePopup = function(selectedPopup) {
   selectedPopup.classList.remove('popup__opened')
+  document.removeEventListener('keydown', handleEsc);
 }
 
 
@@ -133,15 +134,15 @@ const addTextProfile = function(evt) {
 }
 
 //закрытие на эскейп
-const escCode = 'Escape';
+const ESC_KEY = 'Escape';
 function handleEsc(event) {
-    if (event.key === escCode) {
+    if (event.key === ESC_KEY) {
         const activePopup = document.querySelector('.popup__opened');
         closePopup(activePopup);
     }
 }
 
-document.addEventListener('keydown', handleEsc);
+
 popupOpenButtonElement.addEventListener('click', () => openPropfilePopup(popupEditProfile));
 placeAddButtonElement.addEventListener('click', () => openPopup(popupAddPlace));
 popupCloseButtonElement.addEventListener('click',() => closePopup(popupEditProfile));
