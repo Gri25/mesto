@@ -1,6 +1,8 @@
 import { Card } from './Card.js';
 import { initialCards } from './initial-сards.js';
-import { openPopup, closePopup, handleEsc } from './open-close-popup.js';
+import { openPopup, closePopup, handleEsc } from './utils.js';
+import { FormValidator } from './FormValidator.js';
+
 const popupElement = document.querySelector('.popup');
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddPlace = document.querySelector('.popup_type_add-place');
@@ -8,15 +10,9 @@ const popupOpenButtonElement = document.querySelector('.person__edit-button');
 const placeAddButtonElement = document.querySelector('.person__add-button');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
 const popupCloseAddElement = popupAddPlace.querySelector('.popup__close');
-//форма добавления карты
 const formAddElement = popupAddPlace.querySelector('.popup__form');
-//инпуты для добавления новой карточки
 const placeCard = formAddElement.querySelector('.popup__input_type_name');
 const urlCard = formAddElement.querySelector('.popup__input_type_link');
-//переменные для добавления карточек
-//const cardImage = document.queryCommandEnabled('.card__img');
-//const cardTitle = document.querySelector('.card__text');
-//
 const profileName = document.querySelector('.person__name');
 const profileJob = document.querySelector('.person__profession');
 const popupElementNameInput = popupElement.querySelector('.popup__input_type_name');
@@ -24,33 +20,33 @@ const popupElementJobInput = popupElement.querySelector('.popup__input_type_job'
 const formElement = document.querySelector('.popup__form');
 const formSubmitButton = document.querySelector('.popup__submit-button');
 const popupSaveAddElement = popupAddPlace.querySelector('.popup__submit-button');
-//
 const cardCase = document.querySelector('.cards');
-//DOM для попапа картинки
 const popupPlace = document.querySelector('.popup-place');
 const popupPlaceContainer = popupPlace.querySelector('.popup-place__container');
 const popupPlaceClose = popupPlaceContainer.querySelector('.popup-place__close');
+//Ф-ция создания карточек
+const createCard = (data, wrap) => {
+  popupSaveAddElement.classList.add('popup__submit-button_anactive');
+  const card = new Card(data.name, data.link, '.cards-template');
+  wrap.prepend(card.generateCard());
+};
 
-
-//рендер
+//Рендер
 initialCards.forEach(function (el) {
-  const card = new Card(el.name, el.link, '.cards-template')
-  cardCase.append(card.generateCard());
+  createCard(el, cardCase)
 });
 
-//добавляем новую карточку
+//Новая карточка
 const addNewCard = (event) => {
-  event.preventDefault()
-  const placeValue = placeCard.value;
-  const urlValue = urlCard.value;
-  popupSaveAddElement.setAttribute('disabled', true);
-  popupSaveAddElement.classList.add('popup__submit-button_anactive');
-  const newCard = new Card(placeValue, urlValue, '.cards-template')
-  cardCase.prepend(newCard.generateCard());
-
+  event.preventDefault();
+  createCard({
+    name: placeCard.value,
+    link: urlCard.value
+  }, cardCase);
   closePopup(popupAddPlace);
   event.target.reset();
-}
+  toggleButtonState();
+};
 
 //функция открытия попапа для редактировния профиля
 const openPropfilePopup = function (selectedPopup) {
@@ -80,7 +76,6 @@ const addTextProfile = function (evt) {
   closePopup(popupElement)
 }
 
-import { FormValidator } from './FormValidator.js';
 const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',

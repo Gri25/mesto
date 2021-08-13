@@ -15,8 +15,10 @@ export class FormValidator {
   _showInputError = (inputElement) => {
     const _formSection = inputElement.closest(this._sectionInput);
     const _errorElement = _formSection.querySelector(this._errorClass);
+    this._errorMessage = inputElement.validationMessage;
     _errorElement.textContent = this._errorMessage;
     _errorElement.classList.add(this._errorClassActive);
+    inputElement.classList.add(this._inputErrorClass);
   }
 
   //спрятать сообщение
@@ -25,25 +27,27 @@ export class FormValidator {
     const _errorElement = _formSection.querySelector(this._errorClass);
     _errorElement.textContent = "";
     _errorElement.classList.remove(this._errorClassActive);
+    inputElement.classList.remove(this._inputErrorClass);
   }
 
   //проверка
   _checkInputValidity = (inputElement) => {
     this._isInputNotValid = !inputElement.validity.valid;
     if (this._isInputNotValid) {
-      this._errorMessage = inputElement.validationMessage;
+
       this._showInputError(inputElement);
-      inputElement.classList.add(this._inputErrorClass);
+
     } else {
       this._hideInputError(inputElement);
-      inputElement.classList.remove(this._inputErrorClass);
+
     }
   }
 
   //дизейбл кнопки тут в аргумент можно добавить инпутЛист
-  _toggleButtonState() {
+  toggleButtonState() {
     const _findNotValid = (inputElement) => !inputElement.validity.valid;
     const _hasNotValidInput = this._inputList.some(_findNotValid);
+
     if (_hasNotValidInput) {
       this._submitButtonElement.setAttribute('disabled', true);
       this._submitButtonElement.classList.add(this._inactiveButtonClass);
@@ -64,13 +68,13 @@ export class FormValidator {
       inputElement.addEventListener('input', (event) => {
         this._checkInputValidity(inputElement);
 
-        this._toggleButtonState(inputElement);
+        this.toggleButtonState(inputElement);
       });
     });
   }
 
   _resetValidation() {
-    this._toggleButtonState();
+    this.toggleButtonState();
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement)
     });
