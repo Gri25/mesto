@@ -1,4 +1,4 @@
-export class FormValidator {
+export default class FormValidator {
   constructor(config, formElement) {
     this._formSelector = config.formSelector
     this._inputSelector = config.inputSelector
@@ -34,12 +34,9 @@ export class FormValidator {
   _checkInputValidity = (inputElement) => {
     this._isInputNotValid = !inputElement.validity.valid;
     if (this._isInputNotValid) {
-
       this._showInputError(inputElement);
-
     } else {
       this._hideInputError(inputElement);
-
     }
   }
 
@@ -63,18 +60,18 @@ export class FormValidator {
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     //Находим кнопку
     this._submitButtonElement = this._formElement.querySelector(this._submitButtonSelector);
+    this.toggleButtonState();
     //Запуск проверки ошибки
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', (event) => {
         this._checkInputValidity(inputElement);
-
         this.toggleButtonState(inputElement);
       });
     });
   }
 
-  _resetValidation() {
-    this.toggleButtonState();
+  resetValidation() {
+    this.toggleButtonState()
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement)
     });

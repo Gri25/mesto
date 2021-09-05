@@ -1,7 +1,7 @@
 .popup-place__close {
   width: 40px;
   height: 40px;
-  background: transparent center url("../../../images/Close\ Icon.svg");
+  background: transparent center url("../../../images/CloseIcon.svg");
   background-size: auto;
   border: none;
   -webkit-transition: 0.3s;
@@ -24,7 +24,7 @@
 
 @media screen and (max-width: 320px) {
   .popup-place__close {
-    background: transparent center url("../../../images/Close\ Icon-1.svg");
+    background: transparent center url("../../../images/CloseIcon1.svg");
     border: none;
     right: 0;
     width: 24px;
