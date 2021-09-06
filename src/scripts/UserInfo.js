@@ -10,7 +10,7 @@ export default class Userinfo {
       job: this._job.textContent
     };
   }
-  //Отправить
+  //Править
   setUserInfo({ fullName, profession }) {
     this._name.textContent = fullName;
     this._job.textContent = profession;
