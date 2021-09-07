@@ -3,7 +3,6 @@ export default class Section {
   ) {
     this._renderedItems = data;
     this._renderer = renderer;
-
     this._container = containerSelector;
   }
 
@@ -11,11 +10,11 @@ export default class Section {
     this._renderedItems.forEach(item => this._renderer(item))
   }
 
-  setItem(element) {
+  appendItem(element) {
     this._container.append(element);
   }
 
-  setItemPrepend(element) {
+  prependItem(element) {
     this._container.prepend(element);
   }
 }

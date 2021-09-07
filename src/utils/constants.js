@@ -21,7 +21,6 @@ export const formEdit = document.querySelector('.popup__form_type_profile');
 export const formAdd = document.querySelector('.popup__form_type_place');
 
 
-
 export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -32,23 +31,6 @@ export const config = {
   errorClassActive: 'popup__input-error_active',
   sectionInput: '.popup__input-section',
 }
-/*
-const arkhyz = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg', import.meta.url);
-const chelyabinsk = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg', import.meta.url);
-const ivanovo = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg', import.meta.url);
-const kamchatka = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg', import.meta.url);
-const kholmogorsky = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg', import.meta.url);
-const baikal = new URL('https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg', import.meta.url);
-
-export const initialCards = [
-  { name: 'Архыз', link: arkhyz },
-  { name: 'Челябинская область', link: chelyabinsk },
-  { name: 'Иваново', link: ivanovo },
-  { name: 'Камчатка', link: kamchatka },
-  { name: 'Холмогорский район', link: kholmogorsky },
-  { name: 'Байкал', link: baikal }
-];
-*/
 
 import arkhyz from '../images/arkhyz.jpg'
 import chelyabinsk from '../images/chelyabinsk-oblast.jpg';

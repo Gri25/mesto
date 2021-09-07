@@ -1,20 +1,20 @@
 export default class Popup {
-  constructor(popupSelector) {
-    this._popupSelector = popupSelector;
+  constructor(popupElement) {
+    this._popupElement = popupElement;
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._closePopup = this._closePopup.bind(this);
+    this._handleOverlayClick = this._handleOverlayClick.bind(this);
   }
   //Открыть
   open() {
     this.setEventListeners();
-    this._popupSelector.classList.add('popup__opened');
+    this._popupElement.classList.add('popup__opened');
     document.addEventListener('keydown', this._handleEscClose);
   }
   //Закрыть
   close() {
-    this._popupSelector.classList.remove('popup__opened');
+    this._popupElement.classList.remove('popup__opened');
     document.removeEventListener('keydown', this._handleEscClose);
-    this._popupSelector.removeEventListener('click', this._closePopup);
+    this._popupElement.removeEventListener('click', this._handleOverlayClick);
   }
   //Закрытие на esc
   _handleEscClose(event) {
@@ -23,13 +23,13 @@ export default class Popup {
     }
   }
   //Затемненная область
-  _closePopup(evt) {
+  _handleOverlayClick(evt) {
     if (evt.target.classList.contains('popup__opened') || evt.target.classList.contains('popup__close'))
       this.close();
   };
   //Слушатель
   setEventListeners() {
-    this._popupSelector.addEventListener('click', this._closePopup);
+    this._popupElement.addEventListener('click', this._handleOverlayClick);
   }
 
 }

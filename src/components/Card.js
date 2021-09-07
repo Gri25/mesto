@@ -41,8 +41,8 @@ export default class Card {
     this._trashButton = this._element.querySelector('.card__delete-button');
     this._strokeButton = this._element.querySelector('.card__stroke');
     this._cardImage = this._element.querySelector('.card__img');
-    this._element.querySelector('.card__img').src = this._link;
-    this._element.querySelector('.card__img').alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
     this._element.querySelector('.card__text').textContent = this._name;
     this._setEventListeners();
 

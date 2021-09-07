@@ -27,13 +27,13 @@ import {
   personData,
 } from '../utils/constants.js'
 //компоненты
-import Section from '../scripts/Section.js';
-import Card from '../scripts/Card.js';
-import Popup from '../scripts/Popup.js';
-import FormValidator from '../scripts/FormValidator.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import Userinfo from '../scripts/UserInfo.js'
+import Section from '../components/Section.js';
+import Card from '../components/Card.js';
+import Popup from '../components/Popup.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import Userinfo from '../components/UserInfo.js'
 
 //Валидация
 const validatorEditProfile = new FormValidator(config, formEdit);
@@ -47,17 +47,17 @@ const cardList = new Section({
   renderer: (data) => {
     const card = new Card(data, '.cards-template', handleCardClick);
     const cardElement = card.generateCard();
-    cardList.setItem(cardElement);
+    cardList.appendItem(cardElement);
   },
 },
   cardCase
 );
 cardList.renderItems();
-
+//Класс открытия модульного окна картинки
+const openImage = new PopupWithImage(popupPlace);
 //Попап картинки
-function handleCardClick(name, link) {// это понятно
-  const openImagePopup = new PopupWithImage(popupPlace);
-  openImagePopup.open(name, link);
+function handleCardClick(name, link) {
+  openImage.open(name, link);
 };
 
 //Редактор профиля
@@ -84,10 +84,9 @@ popupOpenButtonElement.addEventListener('click', () => {
 const popupWithPhotoForm = new PopupWithForm(
   popupAddPlace, {
   handleFormSubmit: (data) => {
-    const newCard = createCard(data,
+    const newAddedCard = createCard(data,
       '.cards-template')
-      const newAddedCard = newCard.generateCard()
-      cardList.setItemPrepend(newAddedCard)
+    cardList.prependItem(newAddedCard)
     formAdd.reset();
     popupWithPhotoForm.close();
   }
@@ -98,7 +97,7 @@ const createCard = (data) => {
   const card = new Card(data,
     '.cards-template',
     handleCardClick);
-    return card
+  return card.generateCard()
 };
 
 //Добавление фото клик
