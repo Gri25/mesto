@@ -1,3 +1,10 @@
+/* Возникла проблема  выкладыванием страницы на gh-pages
+  я установил все плагины, добавил все необходимые изменения в файл
+  package.json и напписал корректную ссылку в README.MD
+  но при переходe на страницу возникает ошибка, как решить
+  данную проблему я не знаю
+*/
+
 //импорты
 import './index.css'
 //константы
@@ -156,19 +163,19 @@ const changeAvatar = new PopupWithForm(
     changeAvatar.renderLoading(true)
     console.log(item)
     api.editAvatarUser(item.link)
-    .then((res)=>{
-      console.log(res)
-      UserInfo.setUserInfo(res)
-      changeAvatar.close()
-    })
-    .finally(()=>{
-      changeAvatar.renderLoading(false)
-    })
+      .then((res) => {
+        console.log(res)
+        UserInfo.setUserInfo(res)
+        changeAvatar.close()
+      })
+      .finally(() => {
+        changeAvatar.renderLoading(false)
+      })
   }
 )
 
 //Удаление
-const popupDelete = new PopupDelete(popupDeleteCard,  (evt, card) => {
+const popupDelete = new PopupDelete(popupDeleteCard, (evt, card) => {
   deleteCard(evt, card)
 })
 
