@@ -8,9 +8,6 @@
   box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: center center;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  margin-right: 20px;
   border: none;
   transition: opacity .2s linear;
 }

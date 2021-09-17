@@ -19,6 +19,11 @@ export const popupPlaceClose = popupPlaceContainer.querySelector('.popup-place__
 export const cardCase = document.querySelector('.cards');
 export const formEdit = document.querySelector('.popup__form_type_profile');
 export const formAdd = document.querySelector('.popup__form_type_place');
+export const formAvatar = document.querySelector('.popup__form_type_avatar');
+export const popupDeleteCard = document.querySelector('.popup-delete');
+export const popupChangeAvatar = document.querySelector('.popup_type_change-avatar');
+export const personAvatarButton = document.querySelector('.person__avatar-button');
+export const popupDeleteButton = document.querySelector('.popup-delete__submit-button');
 
 
 export const config = {
@@ -67,6 +72,7 @@ export const initialCards = [
 ];
 
 export const personData = {
-  nameSelector: '.person__name',
-  infoSelector: '.person__profession'
+  nameSelector: document.querySelector('.person__name'),
+  infoSelector: document.querySelector('.person__profession'),
+  avatar : '.person__avatar'
 };
