@@ -72,7 +72,7 @@ export const initialCards = [
 ];
 
 export const personData = {
-  nameSelector: document.querySelector('.person__name'),
-  infoSelector: document.querySelector('.person__profession'),
+  nameSelector: '.person__name',
+  infoSelector: '.person__profession',
   avatar : '.person__avatar'
 };

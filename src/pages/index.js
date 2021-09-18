@@ -5,6 +5,12 @@
   данную проблему я не знаю
 */
 
+
+/*
+  Перед отправко как и просили проверил работоспособность всей страницы
+  с открытой консолью (ошибок нет запросы все работают нормально)
+*/
+
 //импорты
 import './index.css'
 //константы
@@ -65,7 +71,7 @@ Promise.all([api.getPersonalInfo(), api.getCard()])
   .then(([data, item]) => {
     console.log(item)//данные карточек
     console.log(data)//данные пользователя
-    UserInfo.setUserInfo(data)
+    userInfo.setUserInfo(data)
     userId = data._id
     cardList.renderItems(item)
   })
@@ -113,7 +119,7 @@ const cardList = new Section({
 const openImage = new PopupWithImage(popupPlace);
 
 //Редактор профиля
-const UserInfo = new Userinfo(personData);
+const userInfo = new Userinfo(personData);
 
 // создание новых карточек
 const newCard = new PopupWithForm(
@@ -144,7 +150,7 @@ const popupProfileChange = new PopupWithForm(
     api.changeUserInfo(data)
       .then(() => {
         console.log(data)
-        UserInfo.setUserInfo(data)
+        userInfo.setUserInfo(data)
         popupProfileChange.close()
       })
       .finally(() => {
@@ -165,11 +171,14 @@ const changeAvatar = new PopupWithForm(
     api.editAvatarUser(item.link)
       .then((res) => {
         console.log(res)
-        UserInfo.setUserInfo(res)
+        userInfo.setUserInfo(res)
         changeAvatar.close()
       })
       .finally(() => {
         changeAvatar.renderLoading(false)
+      })
+      .catch((err) => {
+        console.log(err)
       })
   }
 )
@@ -192,10 +201,17 @@ function deleteCard(evt, newCard) {
     });
 }
 
+//Закрытие попапов на кнопку и на оверлей(то как я понял нужно решить ту ошибку на которую вы указали в классе Popup)
+popupDelete.setEventListeners()
+openImage.setEventListeners()
+popupProfileChange.setEventListeners()
+changeAvatar.setEventListeners()
+newCard.setEventListeners()
+
 //Открыть редактор профиля
 popupOpenButtonElement.addEventListener('click', () => {
   validatorEditProfile.resetValidation();
-  const profileInputInfo = UserInfo.getUserInfo()
+  const profileInputInfo = userInfo.getUserInfo()
   popupElementNameInput.value = profileInputInfo.nameSelector;
   popupElementJobInput.value = profileInputInfo.infoSelector;
   popupProfileChange.open();
@@ -212,6 +228,8 @@ personAvatarButton.addEventListener('click', () => {
   validatorChangeAvatar.resetValidation()
   changeAvatar.open()
 })
+
+
 
 //Валидация
 const validatorEditProfile = new FormValidator(config, formEdit);
